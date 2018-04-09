@@ -54,7 +54,8 @@
    - If we copied our code before running npm install then it would run every time as our code would have changed. 
    - By copying just package.json we can be sure that the cache is invalidated only when our package contents have changed.
    - `COPY . <dest dir>` to copy entire directory where our Dockerfile exists.
-   - ``` 
+   - using -e while running container can be use to set environment variables *-e NODE_ENV=production* e.g. `docker run -d --name my-production-app -e NODE_ENV=production -p 3000:3000 my-nodejs-app`
+   - ```
    FROM node:7-alpine
     RUN mkdir -p /src/app
     WORKDIR /src/app
@@ -63,8 +64,9 @@
     COPY . /src/app
     EXPOSE 80 443 3000
     CMD ["npm","start"]
-   
    ```
+   
+
 
    
    
