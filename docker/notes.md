@@ -1,6 +1,6 @@
 # Docker
-  ### Deploying first docker container-
-    - `docker search <image>`
+ ### Deploying first docker container-
+ - `docker search <image>`
     - `docker run -d <image:tag>`
     - `docker inspect <friendly-name|container-id>`
     - `docker logs <friendly-name|container-id>`
@@ -17,6 +17,7 @@
       
     - `docker run ubuntu ps` and  `docker run -it ubuntu bash`
       - some images lets us override the command used to run the image.
+    
 
  ### Deploy static HTML website as container
    - first
