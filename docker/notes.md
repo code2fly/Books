@@ -67,6 +67,15 @@
    CMD ["npm","start"]
    ```
    
+
+ ### Docker - Optimising Dockerfile with OnBuild
+   - the Dockerfile with command prefixed with **ONBUILD** result that we can build this image but the application specific commands won't be executed until the built image is used as a base image. They'll then be executed as part of the base image's build.
+   - things like setting NODE_ENV or copying code from current dir to specified target directory can be done there like `ONBUILD ENV NODE_ENV $NODE_ENV` or `ONBUILD COPY package.json /usr/src/app/` or 
+   `ONBUILD RUN npm install && npm cache clean --force`
+
+
+### Docker - Communicating between containers
+  - 
    
 
 
