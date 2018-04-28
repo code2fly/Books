@@ -75,7 +75,18 @@
 
 
 ### Docker - Communicating between containers
-  - 
+  - how to allow multiple containers to communicate with each other(one is using links)
+  - to connect to a source cotainer(like redis datasource container) use, `--link <containername|id>:<alias>` when launching the container to create the link from.
+  - By setting an alias we separate how our application is configured to how the infrastructure is called. This means the application configuration doesn't need to change as it's connected to other environments.
+  - linking to a container does 2 things-
+    1. add few env variables based on linked to container(so that port,ip etc are easily accessible). this can be checked using `docker run --link redis-server:redis alpine env`
+
+    2. update host file of our cotainer with entry of our source container(redis db), can be checked using  `docker run --link redis-server:redis alpine cat /etc/hosts`
+    3. we can also ping the source container in the same way as it were a server running in our network, like `docker run --link redis-server:redis alpine ping -c 1 redis`
+
+  - with link created application can connect to source container in usual way.
+
+    
    
 
 
